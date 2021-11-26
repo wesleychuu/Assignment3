@@ -1,3 +1,18 @@
+let contactList = [
+    {
+      name: "Roberta Dobbs",
+      phone: "778-555-1234",
+      address: "101 Main St, Anytown, USA",
+      email: "subgenius@slack.example.com",
+    }, 
+    {
+      name: "Bugs Bunny",
+      phone: "123-867-5309",
+      address: "Warner Brothers Animation Lot",
+      email: "whatsup@doc.example.com",
+    },
+];
+
 function cleanUpIndex() {
     elements = document.querySelectorAll('.contact');
 
@@ -24,24 +39,9 @@ function createSingleIndex(contact) {
     main[0].appendChild(createA);
 };
 
-let contactList = [
-    {
-      name: "Roberta Dobbs",
-      phone: "778-555-1234",
-      address: "101 Main St, Anytown, USA",
-      email: "subgenius@slack.example.com",
-    }, 
-    {
-      name: "Bugs Bunny",
-      phone: "123-867-5309",
-      address: "Warner Brothers Animation Lot",
-      email: "whatsup@doc.example.com",
-    },
-];
-
 function renderIndex(contact) {
 
-    let main = document.querySelectorAll('.main');
+    let main = document.querySelectorAll('.main')[0];
        
     for (let i = 0; i < contact.length; i++) {
         let createA = document.createElement('a');
@@ -55,7 +55,8 @@ function renderIndex(contact) {
         createA.appendChild(createDiv);
         createA.href = "page3.html";
 
-        main[0].appendChild(createA);
+        
+        main.appendChild(createA);
     }
 };
 
@@ -256,3 +257,15 @@ function renderCreate(contact) {
 
     main[0].appendChild(contactEdit);
 }
+
+
+
+
+
+let contactsHome = document.querySelector('a#contactshome');
+
+contactsHome.addEventListener('click', function(event) {
+    cleanUpIndex();
+    renderIndex(contactList);
+    event.preventDefault();
+})
