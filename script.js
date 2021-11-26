@@ -161,7 +161,7 @@ function renderCreate(contact) {
     contactName.id = "contactname";
     contactName.name = "contactname";
     contactName.placeholder = "Contact Name";
-    contactName.value = contact.name;
+    // contactName.value = contact.name;
     inputContainer1.appendChild(contactName);
 
     let extraNameField = document.createElement("button")
@@ -180,7 +180,7 @@ function renderCreate(contact) {
     contactPhone.id = "contactphone";
     contactPhone.name = "contactphone";
     contactPhone.placeholder ="Contact Phone";
-    contactPhone.value = contact.phone;
+    // contactPhone.value = contact.phone;
     inputContainer2.appendChild(contactPhone);
 
     let extraPhoneField = document.createElement("button")
@@ -200,7 +200,7 @@ function renderCreate(contact) {
     contactAddress.id = "contactaddress";
     contactAddress.name = "contactaddress";
     contactAddress.placeholder = "Contact Address";
-    contactAddress.value = contact.address;
+    // contactAddress.value = contact.address;
     inputContainer3.appendChild(contactAddress);
 
     let extraAddressField = document.createElement("button");
@@ -219,7 +219,7 @@ function renderCreate(contact) {
     contactEmail.id = "contactemail";
     contactEmail.name = "contactemail";
     contactEmail.placeholder = "Contact Email";
-    contactEmail.value = contact.email;
+    // contactEmail.value = contact.email;
     inputContainer4.appendChild(contactEmail);
 
     let extrafield4 = document.createElement("button");
@@ -262,10 +262,18 @@ function renderCreate(contact) {
 
 
 
-let contactsHome = document.querySelector('a#contactshome');
+let contactsHome = document.querySelector('#contactshome');
 
 contactsHome.addEventListener('click', function(event) {
     cleanUpIndex();
     renderIndex(contactList);
+    event.preventDefault();
+})
+
+let newContact = document.querySelector('#newcontact');
+
+newContact.addEventListener('click', function(event) {
+    cleanUpIndex();
+    renderCreate();
     event.preventDefault();
 })
