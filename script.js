@@ -272,9 +272,9 @@ function renderCreate(contact) {
         event.preventDefault();
         let myForm = document.querySelector('form');
         let formName = myForm.elements[0].value;
-        let formPhone = myForm.elements[1].value;
-        let formAddress = myForm.elements[2].value;
-        let formEmail = myForm.elements[3].value;
+        let formPhone = myForm.elements[2].value;
+        let formAddress = myForm.elements[4].value;
+        let formEmail = myForm.elements[6].value;
         let myinfo = {
             name: formName,
             phone: formPhone,
@@ -284,7 +284,7 @@ function renderCreate(contact) {
 
         contactList.push(myinfo);
         cleanUpCreate();
-        renderIndex(contactList);
+        renderView(contactList[contactList.length-1]);
     })
 }
 
