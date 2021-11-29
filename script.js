@@ -267,6 +267,25 @@ function renderCreate(contact) {
         cleanUpCreate();
         renderIndex(contactList);
     })
+
+    buttonSave.addEventListener('click', function(event) {
+        event.preventDefault();
+        let myForm = document.querySelector('form');
+        let formName = myForm.elements[0].value;
+        let formPhone = myForm.elements[1].value;
+        let formAddress = myForm.elements[2].value;
+        let formEmail = myForm.elements[3].value;
+        let myinfo = {
+            name: formName,
+            phone: formPhone,
+            address: formAddress,
+            email: formEmail,
+        };
+
+        contactList.push(myinfo);
+        cleanUpCreate();
+        renderIndex(contactList);
+    })
 }
 
 
