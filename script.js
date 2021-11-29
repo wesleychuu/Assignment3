@@ -284,7 +284,7 @@ function renderCreate(contact) {
 
         contactList.push(myinfo);
         cleanUpCreate();
-        renderIndex(contactList);
+        renderView(contactList[contactList.length-1]);
     })
 }
 
