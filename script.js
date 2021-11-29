@@ -37,27 +37,23 @@ function createSingleIndex(contact) {
     createA.href = "page3.html";
 
     main[0].appendChild(createA);
+
+    createA.addEventListener("click", function(event) {
+        event.preventDefault();
+        cleanUpIndex();
+        renderView(contact);
+    })
 };
 
-function renderIndex(contact) {
+function renderIndex(contactList) {
 
     let main = document.querySelectorAll('.main')[0];
        
-    for (let i = 0; i < contact.length; i++) {
-        let createA = document.createElement('a');
-        let createDiv = document.createElement('div');
-        let createP = document.createElement('p');
-
-        createP.append(contact[i].name);
-        createDiv.appendChild(createP);
-        createDiv.classList.add("contact");
-
-        createA.appendChild(createDiv);
-        createA.href = "page3.html";
-
-        
-        main.appendChild(createA);
+    for (let i = 0; i < contactList.length; i++) {
+        createSingleIndex(contactList[i]);
     }
+
+
 };
 
 
@@ -264,16 +260,38 @@ function renderCreate(contact) {
 
 let contactsHome = document.querySelector('#contactshome');
 
-contactsHome.addEventListener('click', function(event) {
-    cleanUpIndex();
-    renderIndex(contactList);
+contactsHome.addEventListener('click', function(event) {    
     event.preventDefault();
+    let create = document.querySelectorAll(".contactedit")
+    let view = document.querySelectorAll(".contactinfo")
+    let index = document.querySelectorAll(".contact")
+    if (create.length != 0) {
+        cleanUpCreate();
+    } 
+    else if (view.length != 0) {
+        cleanUpView();
+    } 
+    else if (index.length != 0) {
+        cleanUpIndex();
+    }
+    renderIndex(contactList);
 })
 
 let newContact = document.querySelector('#newcontact');
 
 newContact.addEventListener('click', function(event) {
-    cleanUpIndex();
-    renderCreate();
     event.preventDefault();
+    let create = document.querySelectorAll(".contactedit")
+    let view = document.querySelectorAll(".contactinfo")
+    let index = document.querySelectorAll(".contact")
+    if (create.length != 0) {
+        cleanUpCreate();
+    } 
+    else if (view.length != 0) {
+        cleanUpView();
+    } 
+    else if (index.length != 0) {
+        cleanUpIndex();
+    }
+    renderCreate();   
 })
