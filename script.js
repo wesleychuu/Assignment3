@@ -308,7 +308,7 @@ contactsHome.addEventListener('click', function(event) {
     else if (index.length != 0) {
         cleanUpIndex();
     }
-    renderIndex(contactList);
+    
 })
 
 let newContact = document.querySelector('#newcontact');
@@ -331,3 +331,4 @@ newContact.addEventListener('click', function(event) {
 })
 
 
+renderIndex(contactList);
