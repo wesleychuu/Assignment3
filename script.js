@@ -120,6 +120,9 @@ function renderView(contact) {
 
     divInfo.appendChild(divButtons);
 
+
+
+    
 }
 
 
@@ -239,7 +242,7 @@ function renderCreate(contact) {
     buttons.appendChild(buttonSave);
 
     let buttonCancel = document.createElement("button");
-    buttonCancel.type = "reset";
+    buttonCancel.type = "button";
     buttonCancel.classList.add("button");
     buttonCancel.classList.add("save");
     buttonCancel.id = "cancel";
@@ -252,6 +255,14 @@ function renderCreate(contact) {
     contactEdit.appendChild(form);
 
     main[0].appendChild(contactEdit);
+
+
+
+    buttonCancel.addEventListener('click', function(event) {
+        event.preventDefault();
+        cleanUpCreate();
+        renderIndex(contactList);
+    })
 }
 
 
@@ -262,9 +273,9 @@ let contactsHome = document.querySelector('#contactshome');
 
 contactsHome.addEventListener('click', function(event) {    
     event.preventDefault();
-    let create = document.querySelectorAll(".contactedit")
-    let view = document.querySelectorAll(".contactinfo")
-    let index = document.querySelectorAll(".contact")
+    let create = document.querySelectorAll(".contactedit");
+    let view = document.querySelectorAll(".contactinfo");
+    let index = document.querySelectorAll(".contact");
     if (create.length != 0) {
         cleanUpCreate();
     } 
@@ -281,9 +292,9 @@ let newContact = document.querySelector('#newcontact');
 
 newContact.addEventListener('click', function(event) {
     event.preventDefault();
-    let create = document.querySelectorAll(".contactedit")
-    let view = document.querySelectorAll(".contactinfo")
-    let index = document.querySelectorAll(".contact")
+    let create = document.querySelectorAll(".contactedit");
+    let view = document.querySelectorAll(".contactinfo");
+    let index = document.querySelectorAll(".contact");
     if (create.length != 0) {
         cleanUpCreate();
     } 
@@ -295,3 +306,5 @@ newContact.addEventListener('click', function(event) {
     }
     renderCreate();   
 })
+
+
