@@ -122,7 +122,11 @@ function renderView(contact) {
 
 
 
-    
+    buttonClose.addEventListener('click', function(event) {
+        event.preventDefault();
+        cleanUpView();
+        renderIndex(contactList);
+    })    
 }
 
 
